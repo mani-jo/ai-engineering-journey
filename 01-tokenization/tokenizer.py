@@ -1,5 +1,3 @@
-print("Hi")
-
 def get_word_frequencies(text:str):
     """
     Takes raw text, return dictionary of:
@@ -135,12 +133,3 @@ def decode(tokens):
     
     return " ".join(words)
 
-
-final_words, merges = train_bpe("Amandeep Singh", 5)
-
-print(f"words: {final_words}")
-print(f"merge: {merges}")
-
-tokens = encode("Ramandeep singh, Aman man Ama",merges)
-print(tokens)
-print(decode(tokens))
