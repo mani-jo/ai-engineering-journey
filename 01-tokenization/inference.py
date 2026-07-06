@@ -13,8 +13,8 @@ print(f"Rules loaded")
 
 user_input = str(input("enter text to tokenize: "))
 tokens = encode(user_input, merges)
-
-print(f"Tokens consumed: {len(tokens)}")
+token_consumed = sum(len(word_tokens) for word_tokens in tokens)
+print(f"Tokens consumed: {token_consumed}")
 print(f"Tokens: {tokens}")
 
 print(f"Original user input: {decode(tokens)}")
