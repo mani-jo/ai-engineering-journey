@@ -1,3 +1,5 @@
+import json
+
 def get_word_frequencies(text:str):
     """
     Takes raw text, return dictionary of:
@@ -133,3 +135,22 @@ def decode(tokens):
     
     return " ".join(words)
 
+
+def build_vocab(merges):
+    """
+    Build vocab from merges rules
+    """
+
+    vocab = {}
+
+    for i in range(256):
+        vocab[chr(i)] = i
+    
+    for pair in merges:
+        merged_token ="".join(pair)
+        vocab[merged_token] = len(vocab)
+    
+    with open("vocab.json", "w") as file:
+        json.dump(vocab, file)
+
+    return vocab
