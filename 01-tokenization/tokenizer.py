@@ -147,7 +147,7 @@ def build_vocab(merges):
         vocab[chr(i)] = i
     
     for pair in merges:
-        merged_token ="".join(pair)
+        merged_token = "".join(pair)
         vocab[merged_token] = len(vocab)
     
     with open("vocab.json", "w") as file:
