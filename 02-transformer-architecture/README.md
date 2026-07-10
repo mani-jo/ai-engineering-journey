@@ -25,10 +25,18 @@ Output: [seq_len × embed_dim]   e.g. (3, 64)  ← same shape, richer meaning
 - **Embedding Matrix lookup** — converting token IDs to 64-dimensional vectors
 - **Positional Encoding** — teaching the model word order
 - **Scaled Dot-Product Attention** — Q × K^T / sqrt(d), then softmax, then × V
+- **Multi-Head Attention** — 4 parallel attention heads, each specializing in different relationships (grammar, coreference, semantics, etc.)
+- **Feed-Forward Network** — two-layer MLP with ReLU activation (the "thinking" layer)
+- **Layer Normalization** — keeps numbers stable across deep layers
+- **Residual Connections** — skip connections that prevent gradient vanishing
 - **Weight initialization** — why `* 0.1` matters (prevents spiky attention)
 
 ## Why O(n²)?
 Every token scores against every other token. For `n` tokens, that's `n × n` score calculations. This is the fundamental bottleneck of all Transformer models.
+
+## Learning Resources
+- [Attention in Transformers, Visually Explained — 3Blue1Brown](https://www.youtube.com/watch?v=eMlx5fFNoYc) — The best visual explanation of Q, K, V and how attention weights flow.
+- [Attention Is All You Need — Vaswani et al., 2017](https://arxiv.org/abs/1706.03762) — The original paper. Read Section 3.2.1 for the sqrt(d_k) scaling proof.
 
 ## Run it locally
 ```bash
